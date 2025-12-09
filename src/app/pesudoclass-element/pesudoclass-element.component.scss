@@ -1,0 +1,16 @@
+button{
+    background-color: pink;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: crimson;
+    color: white;
+}
+
+h1::before {
+    content:'👍';
+    position: absolute;
+    left: 0;
+}

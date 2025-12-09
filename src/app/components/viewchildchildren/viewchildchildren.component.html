@@ -1,0 +1,23 @@
+<p #highlight>
+    Iam here to check view child is working properly
+</p>
+<li #highlightlist>
+        Checking........
+    </li>
+    <li #highlightlist>
+        wokringproperly
+        </li>
+<button (click)="changecolor()">Change color</button>
+
+
+<p>{{this.chidcomp?.countervalue}}</p>
+<button (click)="inccounter()">Increment</button>
+<button (click)="deccounter()">Decrement</button>
+<app-counter #countercomp/>
+
+
+<div class="bg-red-100 rounded-2xl p-3">
+    <p>{{indexes ()}}</p>
+    <p>{{note ().title}}</p>
+    <p>{{note ().details}}</p>
+</div>

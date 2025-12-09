@@ -1,0 +1,60 @@
+<div class="contaier job_app">
+<form [formGroup]="jobapplic">
+    <div>
+        Name:
+        <input name="name" formControlName="name">
+    </div>
+    <div>
+        Email:
+        <input name="email" formControlName="email">
+    </div>
+    <div>
+        password:
+        <input name="password" formControlName="password">
+    </div>
+    <div formArrayName="addressarray">
+        <div *ngFor="let data of addressarray.controls;let i=index">
+        <ng-container [formGroupName]="i">
+        street:
+        <input name="street" formControlName="street">
+        city:
+        <input name="city" formControlName="city">
+        zip:
+        <input name="zip" formControlName="zip">
+        </ng-container>
+        </div>
+    
+    </div>
+    <button (click)="createnewaddress()">+</button>
+       
+
+    <button (click)="submitapplication()">
+        Submit
+    </button>
+</form>
+</div>
+
+<div>
+<table>
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let val of detailsarray;let i=index">
+        <td>{{val.name}}</td>
+        <td>{{val.email}}</td>
+        <td *ngFor="let d of val.addressarray">
+            <span>{{d.street}}</span>
+            <span>{{d.city}}</span>
+            <span>{{d.zip}}</span>
+        </td>
+        <button (click)="editdeatils(i)">Edit</button>
+        <button (click)="deletedetails(i)">Delete</button>
+        </tr>
+    </tbody>    
+    </table>
+</div>

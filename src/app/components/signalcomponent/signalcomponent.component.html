@@ -1,0 +1,183 @@
+<div>
+    {{title ()}}
+
+</div>
+
+<div>
+    {{count ()}} time the button has been clicked
+ <button (click)="buttonclicked()"> Click
+    </button> 
+</div>
+
+<p>
+    key components of signals<br>
+    .set<br>
+    .update<br>
+    .computed<br>
+    .effect<br>
+    .untracat<br>
+    .input<br>
+    .transform<br>
+    .modal
+</p>
+
+<h3>Example 3</h3>
+<div>{{name ()}} age {{age()}} can vote is {{CanVote()}}</div>
+
+
+
+<div class="card-group">
+    @for(note of notes;track $index){
+  <div class="card">
+    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card-body">
+        <app-viewchildchildren [note]="note" [indexes]="$index"></app-viewchildchildren>
+        </div>
+  </div>
+}
+</div>
+
+
+
+
+
+
+<p>
+<!-- 
+  //Hoisting
+function fruit(){
+    console.log(name)
+    console.log(price)
+    var name="apple";
+    let price=20
+}
+// fruit()
+//scope using setTimeout
+// for(var i=0;i<3;i++){
+//     setTimeout(()=>{
+//         console.log(i)
+//     },1)
+// }
+// for(let i=0;i<3;i++){
+//     setTimeout(()=>{
+//         console.log(i)
+//     },1)
+// }
+//Abouttype
+// console.log(+true)
+// console.log(typeof(+true))
+// console.log(!"string")
+// console.log(typeof("string"))
+//about object
+// let data="size"
+// let bird={
+//     size:"small"
+// }
+// console.log(bird[data])
+// console.log(bird["size"])
+// console.log(bird.size)
+// console.log(bird.data)
+
+//let scope in object
+// let c={name:"peter"};
+// let d;
+// d=c
+// c.name="anil"
+// console.log(d.name)
+
+//var scope
+// var x;
+// var x=10;
+// console.log(x)
+
+//== and ===
+// let a=3
+// let b=new Number(3)
+// console.log(a==b)
+// console.log(a===b)
+
+//increment
+// number=0
+// console.log(number++)
+// console.log(++number)
+// console.log(number)
+
+//typeofspread
+// function spred(...pred){
+//     console.log(typeof(pred))
+// }
+// spred(21)
+
+//abour eval
+// let value=eval("10*10+5")
+// console.log(value)
+
+//object property
+// let obj={a:"one",b:"2",a:"repeat"}
+// console.log(obj)
+
+//continue
+// for(let i=0;i<7;i++){
+//     if(i == 3)continue;
+//     console.log(i)
+// }
+
+
+//typeof function
+// function hi(){
+//     return (()=> 0);
+// }
+
+// console.log(typeof hi()())
+
+//typeof typeof
+// var a=2
+// console.log(typeof typeof 1)
+
+//empty return -->
+<!-- a=[3,4,4].map((num)=>{
+    if(typeof num === 'number')return;
+    return num*2
+}) -->
+<!-- console.log(a) -->
+
+<!-- Promise Combinators
+// let value1= new Promise(function(resolve,reject){
+//     setTimeout(()=>{
+//         resolve('done')
+//     },1000)
+// });
+// let value2= new Promise(function(resolve,reject){
+//     setTimeout(()=>{
+//         resolve('done')
+//     },1000)
+// });
+// Promise.race([value1,value2]).then(results=>console.log(results))
+// let value3=new Promise(function(resolve,reject){
+//     reject("Error")
+// });
+// let value1=new Promise(function(resolve,reject){
+//     resolve("hello")
+// });
+// let value2=new Promise(function(resolve,reject){
+//     resolve("how are you")
+// });
+// Promise.any([value3,value1,value2]).then(result=>console.log(result))
+
+// let value1=new Promise(function(resolve,reject){
+//  setTimeout(()=>{
+//  resolve("After one second")    
+//  },1000)   
+// })
+// let value2=Promise.reject("Error")
+// let value3=new Promise(function(resolve,reject){
+//  resolve("Hello")   
+// })
+// Promise.allSettled([value1,value2,value3]).then(result=> console.log(result)) -->
+
+
+
+
+</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+

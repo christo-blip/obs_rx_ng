@@ -1,0 +1,181 @@
+<form [formGroup]="bookdetail">
+    <div >
+<div>Title</div>
+        <div formArrayName="titlename">
+            <div *ngFor="let ti of titlename.controls;let i=index">
+
+                <ng-container [formGroupName]="i">
+                            <input name="title" formControlName="title" >
+        
+                    </ng-container>
+                     <button (click)="this.removetitlefunction(i)">-</button>
+            </div>
+
+           <button (click)="this.addtitlefunction()">+</button>
+        
+        </div>
+    </div>
+
+    <div>
+        <div>
+            Author
+        </div>
+        <div>
+            <input name="author" formControlName="author">
+                    
+            <p style="color:red" *ngIf="this.bookdetail.get('author')?.invalid">{{this.author_error}}</p>
+        </div>
+        
+        
+    </div>
+    
+    <div>
+        <div>
+            Pages
+        </div>
+        <div>
+             <input name="pages" formControlName="pages">
+             <p style="color:red" *ngIf="this.bookdetail.get('pages')?.invalid && this.bookdetail.get('pages').touched">
+             <span *ngIf="this.bookdetail.get('pages')?.errors?.['required']">Enter the pages</span>
+             </p>
+        </div>
+        
+       
+    </div>
+    
+    <div>
+        <div>
+            Published
+        </div>
+        <div>
+                        <input name="publish" formControlName="published">
+        </div>
+            
+
+    </div>
+
+    <div>
+        <div>
+            Price
+        </div>
+        <div formGroupName="price">
+        <select name="price" formControlName="totalprice">
+        <option *ngFor="let values of prices" [ngValue]="values.price">
+        {{values.pricevalue}}
+        </option>
+        </select>
+
+            <select name="price" formControlName="currency">
+    <option *ngFor="let money of currencies" [value]="money.value">
+        {{money.viewValue}}
+    </option>
+</select>
+        </div>
+    </div>
+<button [disabled]="bookdetail.invalid" (click)="submitbook()">Save</button>
+
+<button (click)="updateset()">Set Value</button>
+<button (click)="updatepatch()">Patch Value</button>
+</form>
+<div>
+
+</div>
+
+
+
+<!-- <form [formGroup]="dynamicform">
+
+    <input name="countnumber" formControlName="countnumber">
+    <button (click)="adddynamic()">Add</button>
+
+<div formArrayName="mainfield">
+  <div *ngFor="let formGroup of mainfield.controls; let i = index">
+    <div [formGroupName]="i">
+      <input name="names" formControlName="names" />
+      <input name="lablel" formControlName="label" />
+    </div>
+  </div>
+</div>
+</form> -->
+
+<div class="accordion" id="accordionExample1">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo1">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo">
+       dynamic row
+      </button>
+    </h2>
+    <div id="collapseTwo1" class="accordion-collapse collapse" aria-labelledby="headingTwo1" data-bs-parent="#accordionExample1">
+      <div class="accordion-body">
+    <div class="container">
+    <form [formGroup]="dynamicform">
+    <h4>Dynamic form</h4>
+    <input type="number" formControlName="valuecount">
+    <button (click)="addfiled()">Add</button>
+      <div formArrayName="mainfields">
+        <div *ngFor="let form of mainfields.controls;let i=index">
+        <ng-container [formGroupName]="i">  
+      <input name="name" formControlName="name"> 
+      <input name="label" formControlName="label">
+      </ng-container>  
+    </div>
+    </div>
+
+    <button *ngIf="this.mainfields.length > 0" (click)="savemainfields()">Save</button>
+    </form>   
+</div>
+
+    
+<div *ngIf="show_table">
+    <table>
+        <thead></thead>
+        <tbody>
+            <tr *ngFor="let grop of mainfields.controls">
+            <td>Name:{{grop.get('name')?.value}}</td>
+            <td>Label:{{grop.get('label')?.value}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Client register
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <app-clientregister></app-clientregister>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<div>
+    <dt>Set Value</dt>
+    <dd>Set value require every value of formcontrol to be update in the fromgroup</dd>
+</div>
+
+<div>
+<dt>Patch Value</dt>
+<dd>It is flexible allow to upadte only a subset of form control</dd>
+</div>
+
+<div>
+<dt>Value Changes</dt>
+<dd>Value changes primerly refers to "Valuechanges" observable property avaliable on formcontrol and formgroup </dd>
+</div>
+
+</div>

@@ -1,0 +1,47 @@
+<form [formGroup]="addBookForm" (ngSubmit)="saveBook()">
+
+<label>
+    Title
+</label>
+<input name="title" placeholder="Title" formControlName="title">
+<br>
+<label>
+    Author
+</label>
+<input name="author" placeholder="Author" formControlName="author">
+<br>
+<label>
+    No of pages
+</label>
+<input type="number" name="pages" placeholder="Pages" formControlName="pages">
+<br>
+<div class="price-container" formGroupName="price">
+
+<span>
+<label>Currency</label>
+<select name="price" formControlName="currency">
+    <option *ngFor="let money of currencies" [value]="money.value">
+        {{money.viewValue}}
+    </option>
+</select>
+</span>
+
+<span>   
+<label>
+    price
+</label>
+<select name="price" formControlName="value">
+    <option *ngFor="let price of prices" [value]="price.value">
+        {{price.viewValue}}
+    </option>
+</select>
+</span>
+
+</div>
+<br>
+<button type="submit" [disabled]="addBookForm.invalid">
+Save
+</button>
+
+</form>    
+{{addBookForm.value | json}}

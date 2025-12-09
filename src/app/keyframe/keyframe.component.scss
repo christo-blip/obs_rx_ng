@@ -1,0 +1,25 @@
+@keyframes moveBox {
+    0%{
+        transform: translateX(0);
+        background-color: red;
+    }
+
+    50%{
+        transform: translateX(200px);
+        background-color: orange;
+    }
+
+        100%{
+        transform: translateX(400px);
+        background-color: yellow;
+    }
+
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: peachpuff;
+    position: relative;
+    animation: moveBox 5s ease-in-out infinite;
+}

@@ -1,0 +1,4 @@
+<p>userlist works!</p>
+<app-adduser />
+
+<app-user *ngFor="let user of users;let i=index" [user]="user" [id]="i" />

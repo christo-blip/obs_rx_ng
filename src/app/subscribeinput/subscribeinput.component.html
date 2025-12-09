@@ -1,0 +1,91 @@
+<div class="mt-2 p-4 bg-secondary text-white rounded">
+<h2>Reactive-Form Using Form-Group</h2>
+</div>
+<div class="container">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Phone no</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of userArray">
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.username}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.phone}}</td>
+            <td>
+                <button (click)="onedit(data.id)">Edit</button>
+                <button></button>
+
+            </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+
+<form [formGroup]="userForm">
+    <div class="row">
+        <div class="col-6">
+            <label for="">Id</label>
+            <input type="text" formControlName="id">
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-6">
+            <label for="">Name</label>
+            <input type="text" formControlName="name">
+            <div class="text-danger" *ngIf="userForm.controls?.['name'].touched">
+                <span *ngIf="userForm.controls?.['name'].errors?.['required']">
+                    This field is required
+                </span>
+            </div>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-6">
+            <label for="">Username</label>
+            <input type="text" formControlName="username">
+            <div class="text-danger" *ngIf="userForm.controls?.['username'].touched">
+                <span *ngIf="userForm.controls?.['username'].errors?.['required']">
+                    This field is required
+                </span>
+            </div>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-6">
+            <label for="">Email</label>
+            <input type="text" formControlName="email">
+            <div class="text-danger" *ngIf="userForm.controls?.['email'].touched">
+                <span *ngIf="userForm.controls?.['email'].errors?.['required']">
+                    This field is required
+                </span>
+            </div>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-6">
+            <label for="">Phone</label>
+            <input type="text" formControlName="phone">
+            <div class="text-danger" *ngIf="userForm.controls?.['phone'].touched">
+                <span *ngIf="userForm.controls?.['phone'].errors?.['required']">This field is required</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button (click)="submitdata()">submit</button>
+    </div>
+</form>
+
+
+    
+</div>

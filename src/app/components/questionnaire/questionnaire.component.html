@@ -1,0 +1,61 @@
+<div class="container">
+
+    <h1 class="title">
+        Bank Account Type Selection Screener 
+    </h1>
+
+    <p class="subtitle">
+        Answer a few quick questions to help us suggest the most suitable account
+        type for you!
+    </p>
+
+
+    <div *ngIf="currentQuestion as q" class="question-card">
+
+        <h3 class="question-text">{{ q.text }}</h3>
+
+        <div *ngFor="let opt of q.options" class="option">
+            <label for="">
+                <input type="radio" [name]="'q' + q.id" [value]="opt" [checked]="(answers$ | async)?.[q.id] === opt"
+                (change)="onSelect(q.id,opt)"
+                >{{ opt }}
+            </label>
+        </div>
+
+
+        <div class="navigation">
+
+            <button   (click)="goBack()" [disabled]="currentQuestionIndex === 0">
+                Back 
+            </button>
+
+                        <button   (click)="goNext()" [disabled]="!(answers$ | async)?.[q.id] || currentQuestionIndex === questions.length - 1">
+                Next
+            </button>
+
+
+        </div>
+
+
+
+    </div>
+
+
+    <!-- Final Recommendation -->
+     <div *ngIf="( answers$ | async) as answers">
+        <div *ngIf="hasAsweredAll(answers)" class="result-box">
+            <h2> Based on your answers, we recommand:</h2>
+            <p class="Recommendation">{{ getRecommendation(answers)}}</p>
+        </div>
+     </div>
+
+     <div>
+        <pre>{{answers$ | async | json}}</pre>
+     </div>
+
+     <footer class="footer">
+        <p>
+            Need help? Contact our career support team at <a href="#">christopherarulraj &#64; gmail.com</a>
+        </p>
+     </footer>
+</div>
