@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 import { PromiseComponent } from './categories/promise/promise.component';
 import { SignalcomponentComponent } from './components/signalcomponent/signalcomponent.component';
 import { JSONTOFORMComponent } from './json-to-form/json-to-form.component';
-
+import { LifecyclehookComponent } from './lifecyclehook/lifecyclehook.component';
 
 export const routes: Routes = [
 {path:'',redirectTo:'course',pathMatch:'full'},
@@ -17,5 +17,6 @@ export const routes: Routes = [
 {path:'custom',loadComponent:() =>import('./components/customdir/customdir.component').then(m=>m.CustomdirComponent)},
 {path:'promise',loadComponent:() => import('./categories/promise/promise.component').then(m=>m.PromiseComponent)},
 {path:'sig',loadComponent:()=>import('./components/signalcomponent/signalcomponent.component').then(m=>m.SignalcomponentComponent)},
-{path:'jsonform',loadComponent:()=>import('./json-to-form/json-to-form.component').then(m=>m.JSONTOFORMComponent)}
+{path:'jsonform',loadComponent:()=>import('./json-to-form/json-to-form.component').then(m=>m.JSONTOFORMComponent)},
+{path:'life',loadComponent:()=>import('./lifecyclehook/lifecyclehook.component').then(m=>m.LifecyclehookComponent)}
 ];
