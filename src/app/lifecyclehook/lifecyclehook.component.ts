@@ -7,41 +7,24 @@ import { LifecyclehookchildComponent } from "../lifecyclehookchild/lifecyclehook
   templateUrl: './lifecyclehook.component.html',
   styleUrl: './lifecyclehook.component.scss'
 })
-export class LifecyclehookComponent implements OnInit, OnChanges, 
-DoCheck, AfterContentInit, AfterContentChecked,AfterViewInit,AfterViewChecked,OnDestroy
+export class LifecyclehookComponent implements OnInit
+
 {
  public counter;
+User={
+  name:"Raj",
+  age:27
+}
+ 
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("OnChange hi")
-  }
+
 
   ngOnInit(){
-  console.log("Test")
-  }
-  ngDoCheck(): void {
-    // throw new Error('Method not implemented.');
-  }
-  
-  ngAfterContentInit(): void {
-    // throw new Error('Method not implemented.');
-  }
-  
-  ngAfterContentChecked(): void {
-    // throw new Error('Method not implemented.');
-  }
-  
-  ngAfterViewInit(): void {
-    // throw new Error('Method not implemented.');
-  }
-  
-  ngAfterViewChecked(): void {
-    // throw new Error('Method not implemented.');
+  setTimeout(()=>{
+    this.User.name='Frankenstine'
+  },2000)
   }
 
-  ngOnDestroy(): void {
-    // throw new Error('Method not implemented.');
-  }
  
   
 

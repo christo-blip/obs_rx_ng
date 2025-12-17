@@ -1,44 +1,47 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ɵEmptyOutletComponent } from "@angular/router";
 
 @Component({
   selector: 'app-lifecyclehookchild',
-  imports: [],
+  imports: [ɵEmptyOutletComponent],
   templateUrl: './lifecyclehookchild.component.html',
   styleUrl: './lifecyclehookchild.component.scss'
 })
 export class LifecyclehookchildComponent implements OnInit,OnChanges,DoCheck,AfterViewInit,AfterViewChecked,AfterContentInit,AfterContentChecked {
 
-  @Input('name')name='';
+  //  @Input('name')name='';
+  public person='bala'
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log("OnChange")
   }
 
   ngOnInit(){
-  console.log("Test1")
+  // setTimeout(()=>{
+  //   this.person='karthik'
+  // },2000)
   }
   ngDoCheck(): void {
-    // throw new Error('Method not implemented.');
+    console.log("Do check has called")
   }
   
   ngAfterContentInit(): void {
-    // throw new Error('Method not implemented.');
+    console.log("ContentInit")
   }
   
   ngAfterContentChecked(): void {
-    // throw new Error('Method not implemented.');
+    console.log("ContentChecked")
   }
   
   ngAfterViewInit(): void {
-    // throw new Error('Method not implemented.');
+    console.log("After ViewInit has changed")
   }
   
   ngAfterViewChecked(): void {
-    // throw new Error('Method not implemented.');
+    console.log("After ViewChecked has changed")
   }
 
   ngOnDestroy(): void {
-    // throw new Error('Method not implemented.');
   }
 
 
