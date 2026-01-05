@@ -1,0 +1,18 @@
+<form [formGroup]="form">
+  <input
+    type="text"
+    placeholder="Component Name (gallery / profile)"
+    formControlName="componentName"
+  />
+
+  <textarea
+    placeholder="Code"
+    formControlName="code">
+  </textarea>
+
+  <input type="file" (change)="onImageSelect($event)" />
+
+  <button type="button" (click)="submit()">Submit</button>
+</form>
+
+

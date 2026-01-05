@@ -18,5 +18,7 @@ export const routes: Routes = [
 {path:'promise',loadComponent:() => import('./categories/promise/promise.component').then(m=>m.PromiseComponent)},
 {path:'sig',loadComponent:()=>import('./components/signalcomponent/signalcomponent.component').then(m=>m.SignalcomponentComponent)},
 {path:'jsonform',loadComponent:()=>import('./json-to-form/json-to-form.component').then(m=>m.JSONTOFORMComponent)},
-{path:'life',loadComponent:()=>import('./lifecyclehook/lifecyclehook.component').then(m=>m.LifecyclehookComponent)}
+{path:'life',loadComponent:()=>import('./lifecyclehook/lifecyclehook.component').then(m=>m.LifecyclehookComponent)},
+{path:'DSA',loadComponent:()=>import('./components/submit-form/submit-form.component').then(m=>m.SubmitFormComponent)},
+{path:'gallery',loadComponent:()=>import('./components/gallery/gallery.component').then(m=>m.GalleryComponent)}
 ];

@@ -1,0 +1,6 @@
+<h2>Gallery Component</h2>
+
+<div *ngFor="let item of data$ | async">
+  <img [src]="item.image" width="50%" />
+  <pre>{{ item.code }}</pre>
+</div>
