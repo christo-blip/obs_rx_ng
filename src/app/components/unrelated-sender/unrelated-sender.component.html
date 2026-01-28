@@ -1,0 +1,7 @@
+<form [formGroup]="shareddataForm" >
+  <input type="text" name="sharedfield" formControlName="sharefield">
+</form>
+<button (click)="senddata(this.shareddataForm.value.sharefield)"> Sender </button>
+
+<h1> Shared data</h1>
+<app-unrelated-receiver></app-unrelated-receiver>
